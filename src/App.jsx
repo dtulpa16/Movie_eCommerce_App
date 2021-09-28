@@ -3,19 +3,22 @@ import React, {Component} from "react";
 import './App.css'
 import axios from "axios";
 import { render } from 'react-dom';
+import './Home';
+import './BuyerHome';
+import './CheckOut';
+import './Login'
+import './ShoppingCart' 
+import './ProductDescription'
 
 class App extends Component{
     state = {
-        user = null
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const jwt = localStorage.getItem('token');
         try{
             const user = jwtDecode(jwt);
-            this.setState({
-                user
-            });
+            this.setState({user});
         }catch{
 
         }
@@ -23,18 +26,18 @@ class App extends Component{
 
 render(){
         return(
-            <Div className = "App">
+            <div className = "App">
             <Switch>
                 <Route path="/" exact component={Home}/>
-                <Route path="/login" exact component={Login}/>
-                <Route path="/register" exact component={Register}/>
-                <Route path="/user_home" exact component={BuyerHome}/>
-                <Route path="/list_item" exact component={ListItem}/>
-                <Route path="/product_description" exact component={ProductDescription}/>
-                <Route path="/shopping_cart" exact component={ShoppingCart}/>
-                <Route path="/checkout" exact component={Checkout}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/register" component={Register}/>
+                <Route path="/user_home" component={BuyerHome}/>
+                <Route path="/list_item" component={ListItem}/>
+                <Route path="/product_description" component={ProductDescription}/>
+                <Route path="/shopping_cart" component={ShoppingCart}/>
+                <Route path="/checkout" component={Checkout}/>
             </Switch>
-        </Div>
+        </div>
         )
     }
 }
