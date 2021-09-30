@@ -12,7 +12,6 @@ class Register extends Component {
       addressLine1:'',
       city:'',
       state:'',
-      zipCode:'',
      }
 
   handleChange=(event) =>{
@@ -32,14 +31,12 @@ class Register extends Component {
       'addressLine1': this.state.addressLine1,
       'city': this.state.city,
       'state': this.state.state,
-      'zipCode' : this.state.zipCode,
     }  
-
       this.addNewUser(aUser)
   };
 
   async addNewUser(newUser){
-    await axios.post(`https://localhost:44394/api/authentication`,newUser)
+    await axios.post(`https://localhost:44394/api/authentication`, newUser)
   }
 
 
@@ -63,8 +60,6 @@ class Register extends Component {
       <input name="addressLine1" onChange={this.handleChange} value={this.state.addressLine1}/>
       <li><label>city</label></li>
       <input name="city" onChange={this.handleChange} value={this.state.city}/>
-      <li><label>Zip Code</label></li>
-      <input type = "number" name="zipCode" onChange={this.handleChange} value={this.state.zipCode}/>
       <button type = "submit">Create account</button>
       </form>
       </ul>
