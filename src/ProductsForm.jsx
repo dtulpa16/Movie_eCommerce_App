@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 
 
@@ -20,11 +21,15 @@ class ProductsForm extends Component {
   handleSubmit=(event)=>{
     event.preventDefault();
     let newProduct= {
-      name:this.state.name,
-      description:this.state.description,
-      price:this.state.price,
-      genres:this.state.genres,
+      'name':this.state.name,
+      'description':this.state.description,
+      'price':this.state.price,
+      'genres':this.state.genres,
     }
+      this.addNewProduct(newProduct)
+  }
+  async addNewProduct(newProd){
+    await axios.post(`https://localhost:44394/api/product`,newProd)
   }
   
   render() { 
@@ -44,4 +49,4 @@ class ProductsForm extends Component {
   }
 }
  
-export default ProductsForm ;
+export default ProductsForm
