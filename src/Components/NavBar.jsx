@@ -6,9 +6,9 @@ const NavBar = ({user}) => {
     <nav>
       {user &&<h4>Welcome {user.username}</h4>}
         <ul>
-            <Link to = '/'>
+            {/* <Link to = '/'>
               <li>Home</li>
-            </Link>  
+            </Link>   */}
             <Link to = '/home'>
               <li>Home</li>
             </Link> 
