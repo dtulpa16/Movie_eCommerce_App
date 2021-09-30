@@ -21,7 +21,10 @@ function NavBar() {
         </Link> 
         <Link to = '/shoppingcart'>
           <li>ShoppingCart</li>
-        </Link> 
+        </Link>
+        <Link to = '/register'>
+          <li>Register</li>
+        </Link>  
       </ul>
     </nav>
    );

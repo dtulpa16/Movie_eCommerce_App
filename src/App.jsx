@@ -12,6 +12,7 @@ import ProductDescription from './ProductDescription'
 import ListItem from './ListItem'
 import Register from './Register'
 import NavBar from './NavBar';
+// import jwtDecode 
 
 class App extends Component{
     state = {}
@@ -48,18 +49,3 @@ render(){
 export default App;
 
 
-// function App(){
-//     <Div className = "App">
-//         <Switch>
-//             <Route path="/" exact component={Home}/>
-//             <Route path="/login" exact component={Login}/>
-//             <Route path="/register" exact component={Register}/>
-//             <Route path="/buyer_home" exact component={BuyerHome}/>
-//             <Route path="/seller_home" exact component={SellerHome}/>
-//             <Route path="/list_item" exact component={ListItem}/>
-//             <Route path="/product_description" exact component={ProductDescription}/>
-//             <Route path="/shopping_cart" exact component={ShoppingCart}/>
-//             <Route path="/checkout" exact component={Checkout}/>
-//         </Switch>
-//     </Div>
-// }
