@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import Logout from "./logout";
 
 const NavBar = ({user}) => {
   return ( 
     <nav>
-      {user &&<h4>Welcome {user.username}</h4>}
-        <ul>
-            {/* <Link to = '/'>
-              <li>Home</li>
-            </Link>   */}
+      {user &&
+          <React.Fragment>
+            <h4>Welcome {user.username}</h4>
             <Link to = '/home'>
               <li>Home</li>
             </Link> 
@@ -21,9 +20,12 @@ const NavBar = ({user}) => {
             <Link to = '/shoppingcart'>
               <li>ShoppingCart</li>
             </Link>
+            <li><Logout/></li>
+            </React.Fragment>
+            }
         {!user && 
         <React.Fragment>
-
+          
             <Link to = '/register'>
               <li>Register</li>
             </Link>  
@@ -33,7 +35,6 @@ const NavBar = ({user}) => {
 
         </React.Fragment>  
         }
-      </ul>
     </nav>
    );
 }

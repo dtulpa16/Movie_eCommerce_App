@@ -9,10 +9,8 @@ import BuyerHome from'./Components/BuyerHome';
 import CheckOut from './Components/CheckOut';
 import ShoppingCart from'./Components/ShoppingCart' 
 import ProductDescription from './Components/ProductDescription'
-import ListItem from './Components/ListItem';
 import Register from './Components/Register'
 import NavBar from './Components/NavBar';
-import Header from './Components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jwtDecode from 'jwt-decode'
 import ProductsForm from './Components/ProductsForm';
@@ -25,7 +23,7 @@ class App extends Component{
         user: ''
     }
 
-
+    
      componentDidMount() {
         const jwt = localStorage.getItem('token');
         try{
