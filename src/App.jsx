@@ -7,7 +7,6 @@ import { render } from 'react-dom';
 import Home from './Components/Home';
 import BuyerHome from'./Components/BuyerHome';
 import CheckOut from './Components/CheckOut';
-import Login from './Components/Login'
 import ShoppingCart from'./Components/ShoppingCart' 
 import ProductDescription from './Components/ProductDescription'
 import ListItem from './Components/ListItem';
@@ -17,12 +16,13 @@ import Header from './Components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jwtDecode from 'jwt-decode'
 import ProductsForm from './Components/ProductsForm';
+import Login from './Components/Login';
 
 
 
 class App extends Component{
     state = {
-
+        user: ''
     }
 
 
@@ -30,7 +30,6 @@ class App extends Component{
         const jwt = localStorage.getItem('token');
         try{
             const user = jwtDecode(jwt);
-            console.log(user)
             this.setState({user});
         }catch{
 
@@ -43,7 +42,7 @@ render(){
     const user = this.state.user;
         return(
             <div className = "App">
-            <NavBar />   
+            <NavBar user = {user}/>   
             <Switch>
                 <Route
                 path ='/home'
@@ -55,11 +54,11 @@ render(){
                     }
                 }}
                 />
-                <Route path="/" exact component={Home}/>
+                <Route path="/home" exact component={Home}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/user_home" component={BuyerHome}/>
-                <Route path="/list_item" component={ProductsForm}/>
+                <Route path="/productsform" component={ProductsForm}/>
                 <Route path="/product_description" component={ProductDescription}/>
                 <Route path="/shopping_cart" component={ShoppingCart}/>
                 <Route path="/checkout" component={CheckOut}/>
