@@ -8,8 +8,8 @@ const NavBar = ({user}) => {
       {user &&
           <React.Fragment>
             <h4>Welcome {user.username}</h4>
-            <Link to = '/home'>
-              <li>Home</li>
+            <Link to = '/products'>
+              <li>Products for sale</li>
             </Link> 
             <Link to = '/productsform'>
               <li>List Item</li>

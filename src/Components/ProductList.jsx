@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import './ProductList.css'
 
 
 class ProductList extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            Product: [],
+            product: [],
             search: ''
          }
     }
@@ -20,7 +19,7 @@ class ProductList extends Component {
     async getProduct(){
         let response = await axios.get('https://localhost:44394/api/product')
         this.setState({
-            Prodcut: response.data
+            product: response.data
         })
     }
     
@@ -38,14 +37,14 @@ class ProductList extends Component {
         this.filteredSearch()
     }
 
-    filteredSearch = () =>{
-        let filteredResults = this.state.Product.filter(song => {
-            return song.title.toLowerCase().includes(this.state.search.toLowerCase()) || Product.name.toLowerCase().includes(this.state.search.toLowerCase()) || Product.reviews.toLowerCase().includes(this.state.search.toLowerCase()) || Product.description.toLowerCase().includes(this.state.search.toLowerCase()) || Product.genre.toLowerCase().includes(this.state.search.toLowerCase())
-        })
-        this.setState({
-            Product : filteredResults
-        })
-    }
+    // filteredSearch = () =>{
+    //     let filteredResults = this.state.Product.filter(song => {
+    //         return song.title.toLowerCase().includes(this.state.search.toLowerCase()) || Product.name.toLowerCase().includes(this.state.search.toLowerCase()) || Product.reviews.toLowerCase().includes(this.state.search.toLowerCase()) || Product.description.toLowerCase().includes(this.state.search.toLowerCase()) || Product.genre.toLowerCase().includes(this.state.search.toLowerCase())
+    //     })
+    //     this.setState({
+    //         Product : filteredResults
+    //     })
+    // }
     
 
     render() { 
@@ -70,8 +69,8 @@ class ProductList extends Component {
                         </th>
                     </tr>
                 </thead>
-                {this.state.Product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td>
-             </tr></tbody>
+                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td>review</td></tr></tbody></>)}
+             
             
             
             
