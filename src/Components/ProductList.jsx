@@ -4,19 +4,36 @@ import { Route, Router } from 'react-router';
 import { Link } from 'react-router-dom';
 import ProductDescription from './ProductDescription';
 import Reviews from './Reviews';
+import jwtDecode from 'jwt-decode';
 
 class ProductList extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             product: [],
-            search: ''
+            search: '',
+            user:''
          }
     }
 
     
+
     componentDidMount(){
         this.getProduct()
+        this.getUser(localStorage)
+    }
+
+    async getUser(localStorage) {
+        const jwt = localStorage.getItem('token');
+        try{
+            const user = jwtDecode(jwt);
+            this.setState({user});
+        }catch{
+        }
+        const response = await axios.get('https://localhost:44394/api/users', { headers: {Authorization: 'Bearer ' + jwt}});
+        this.setState({
+            user: response.data.id
+        })
     }
     
     async getProduct(){
@@ -40,14 +57,13 @@ class ProductList extends Component {
         this.filteredSearch()
     }
 
-    // filteredSearch = () =>{
-    //     let filteredResults = this.state.Product.filter(song => {
-    //         return song.title.toLowerCase().includes(this.state.search.toLowerCase()) || Product.name.toLowerCase().includes(this.state.search.toLowerCase()) || Product.reviews.toLowerCase().includes(this.state.search.toLowerCase()) || Product.description.toLowerCase().includes(this.state.search.toLowerCase()) || Product.genre.toLowerCase().includes(this.state.search.toLowerCase())
-    //     })
-    //     this.setState({
-    //         Product : filteredResults
-    //     })
-    // }
+    async addItemToCart(element){
+        alert(`${element.name} added to cart!`)
+        let addToCart = {userId: this.state.user, productId: element.id, quantity:1}
+        await axios.post(`https://localhost:44394/api/shoppingcart`,addToCart)
+    }
+
+
     
 
     render() { 
@@ -59,20 +75,10 @@ class ProductList extends Component {
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Rating</th>
-                        <th>Genre</th>
-                        <th>
-                            <form onSubmit = {this.handleSubmit}>
-                                <input name= 'search' onChange = {this.handleChange} value = {this.state.search}/> 
-                                <button type = 'submit'>Search!</button>
-                            </form>
-                        </th>
-                        <th>
-                        <button onClick = {() => this.setState(this.getProduct)}>Show All</button>
-                        </th>
+                        <th>Average Customer Rating</th>
                     </tr>
                 </thead>
-                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td><Reviews product = {element.id}/></td><td><Link to ={{pathname: '/product_description', product: element}}>Product description</Link></td></tr></tbody></>)}
+                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td><Reviews product = {element.id}/></td><td><Link to ={{pathname: '/product_description', product: element}}>Product description</Link></td><td><button onClick={() => this.addItemToCart(element)}>Add to cart</button></td></tr></tbody></>)}
              
             </table>
             

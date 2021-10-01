@@ -16,6 +16,7 @@ import jwtDecode from 'jwt-decode';
 import ProductsForm from './Components/ProductsForm';
 import Login from './Components/Login';
 import ProductList from './Components/ProductList';
+import GetCurrentUser from './Hooks/GetCurrentUser';
 
 
 
@@ -53,7 +54,7 @@ render(){
                     }
                 }}
                 />
-                <Route path="/products" exact component={ProductList}/>
+                <Route path="/products" render={props => <ProductList {...props} user={this.state.user}/>}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/user_home" component={BuyerHome}/>
