@@ -3,7 +3,7 @@ import axios from "axios";
 import { Route, Router } from 'react-router';
 import { Link } from 'react-router-dom';
 import ProductDescription from './ProductDescription';
-
+import Reviews from './Reviews';
 
 class ProductList extends Component {
     constructor(props) {
@@ -59,7 +59,7 @@ class ProductList extends Component {
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Reviews</th>
+                        <th>Rating</th>
                         <th>Genre</th>
                         <th>
                             <form onSubmit = {this.handleSubmit}>
@@ -72,7 +72,7 @@ class ProductList extends Component {
                         </th>
                     </tr>
                 </thead>
-                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td>review</td><td><Link to ={{pathname: '/product_description', product: element}}>Product description</Link></td></tr></tbody></>)}
+                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td><Reviews product = {element.id}/></td><td><Link to ={{pathname: '/product_description', product: element}}>Product description</Link></td></tr></tbody></>)}
              
             </table>
             
