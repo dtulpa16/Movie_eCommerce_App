@@ -40,7 +40,7 @@ render(){
     const user = this.state.user;
         return(
             <div className = "App">
-            <NavBar user = {user}/>   
+            <NavBar className="NavBar" user = {user}/>   
             <Switch>
                 <Route
                 path ='/home'
