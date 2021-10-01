@@ -78,7 +78,7 @@ class ProductList extends Component {
                         <th>Average Customer Rating</th>
                     </tr>
                 </thead>
-                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td><Reviews product = {element.id}/></td><td><Link to ={{pathname: '/product_description', product: element}}>Product description</Link></td><td><button onClick={() => this.addItemToCart(element)}>Add to cart</button></td></tr></tbody></>)}
+                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td><Reviews product = {element.id}/></td><td><Link to ={{pathname: '/product_description', state:{product: [element]}}}>Product description</Link></td><td><button onClick={() => this.addItemToCart(element)}>Add to cart</button></td></tr></tbody></>)}
              
             </table>
             
