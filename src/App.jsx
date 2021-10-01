@@ -12,7 +12,7 @@ import ProductDescription from './Components/ProductDescription'
 import Register from './Components/Register'
 import NavBar from './Components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import jwtDecode from 'jwt-decode'
+import jwtDecode from 'jwt-decode';
 import ProductsForm from './Components/ProductsForm';
 import Login from './Components/Login';
 import ProductList from './Components/ProductList';
