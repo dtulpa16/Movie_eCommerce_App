@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import jwtDecode from 'jwt-decode'
 import ProductsForm from './Components/ProductsForm';
 import Login from './Components/Login';
+import ProductList from './Components/ProductList';
 
 
 
@@ -52,7 +53,7 @@ render(){
                     }
                 }}
                 />
-                <Route path="/home" exact component={Home}/>
+                <Route path="/products" exact component={ProductList}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/user_home" component={BuyerHome}/>
