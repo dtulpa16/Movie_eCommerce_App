@@ -49,10 +49,13 @@ class ProductsForm extends Component {
      <input name= "price" type = "number" onChange={this.handleChangeOne} value={this.state.price}/>
      <label>Genre</label>
      <select id="genres" name="genres" type = "number"onChange={this.handleChangeOne}>
-        <option value="1">Comedy</option>
-        <option value="2">Action</option>
-        <option value="3">Romance</option>
-        <option value="4">Suspense</option>
+        <option value="1">Musical</option>
+        <option value="2">Comedy</option>
+        <option value="3">Documentary</option>
+        <option value="4">Action</option>
+        <option value="5">Suspense</option>
+        <option value="6">Drama</option>
+        <option value="7">Mystery</option>
     </select>
      <button type = "submit">Post product</button>
      </form> 

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ProductDescription from './ProductDescription';
 import Reviews from './Reviews';
 import jwtDecode from 'jwt-decode';
+import GetGenre from './GetGenre';
 
 class ProductList extends Component {
     constructor(props) {
@@ -75,10 +76,11 @@ class ProductList extends Component {
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
+                        <th>Genre</th>
                         <th>Average Customer Rating</th>
                     </tr>
                 </thead>
-                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td><Reviews product = {element.id}/></td><td><Link to ={{pathname: '/product_description', state:{product: [element]}}}>Product description</Link></td><td><button onClick={() => this.addItemToCart(element)}>Add to cart</button></td></tr></tbody></>)}
+                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td><GetGenre product = {element.name}/></td><td><Reviews product = {element.id}/></td><td><Link to ={{pathname: '/product_description', state:{product: [element]}}}>Product description</Link></td><td><button onClick={() => this.addItemToCart(element)}>Add to cart</button></td></tr></tbody></>)}
              
             </table>
             
