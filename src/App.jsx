@@ -60,7 +60,7 @@ render(){
                 <Route path="/user_home" component={BuyerHome}/>
                 <Route path="/productsform" component={ProductsForm}/>
                 <Route path="/product_description" component={ProductDescription}/>
-                <Route path="/shopping_cart" component={ShoppingCart}/>
+                <Route path="/shopping_cart" render={props => <ShoppingCart {...props} user={this.state.user}/>}/>
                 <Route path="/checkout" component={CheckOut}/>
             </Switch>
         </div>

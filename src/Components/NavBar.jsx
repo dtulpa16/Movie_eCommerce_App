@@ -18,7 +18,7 @@ const NavBar = ({user}) => {
             <Link to = '/checkOut'>
               <li className="li" >CheckOut</li>
             </Link> 
-            <Link to = '/shoppingcart'>
+            <Link to = '/shopping_cart'>
               <li className="li">ShoppingCart</li>
             </Link>
             <li><Logout/></li>
