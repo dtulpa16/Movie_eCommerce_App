@@ -16,7 +16,7 @@ class GetGenre extends Component {
 
     async genreType(){
         console.log(this.props.product)
-        var search = (this.props.product).slice(0,2)
+        var search = (this.props.product).slice(0,4)
         var response = await axios.get(`https://localhost:44394/api/product/searchresults${search}`)
         this.setState({
             genre:response.data
