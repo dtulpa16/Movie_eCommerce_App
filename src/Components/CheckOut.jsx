@@ -1,10 +1,21 @@
 import React from 'react';
+import Subtotal from './Subtotal'
 
-function CheckOut() {
+function Checkout() {
   return (
-  <div>
-    <h1> CheckOut</h1>
-  </div>  );
+      <div className="checkout">
+        <div className="checkout_left">
+          <div>
+          <h2 className="checkout_title">Your cart is empty.</h2>
+          <p>Please add items</p>
+        </div>
+      </div>
+      <div className="checkout__right">
+          <Subtotal/>
+  </div>  
+  </div>  
+  )
 }
 
-export default CheckOut;
+
+export default Checkout;
