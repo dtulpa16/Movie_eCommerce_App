@@ -10,29 +10,30 @@ const ShoppingCart =(props) =>{
 
     useEffect(()=>{
       getProducts(props.user)
-    },[])
+    },[products])
 
-
-
-    // async function getUser(localStorage) {
-    //       let jwt = localStorage.getItem('token');
-    //       try{
-    //           let currentUser = jwtDecode(jwt);
-    //           setUser(currentUser);
-    //       }catch{
-    //       }
-    //       let response = await axios.get('https://localhost:44394/api/users', { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setUser(response.data)});
-    //   }
 
     async function getProducts(user){
         await axios.get(`https://localhost:44394/api/shoppingcart/${user.id}`).then(response=>{setProducts(response.data)})
+    }
+
+    async function removeProduct(id){
+      await axios.delete(`https://localhost:44394/api/shoppingcart/${id}/${props.user.id}`)
     }
 
 
   return (
   <div>
     <h1>Your Cart</h1><hr/>
-    {products.map((element)=><><h3>{element.products.name}</h3><h5>${element.products.price}</h5></>)}
+    <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                {products.map((element)=><><tbody><tr><td>{element.products.name}</td><td>${element.products.price}</td><td><button onClick={()=> removeProduct(element.products.id)}>Remove From Cart</button></td></tr></tbody></>)}             
+            </table>
   </div>
 
     );
