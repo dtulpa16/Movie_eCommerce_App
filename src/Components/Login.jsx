@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
+import './ProductList.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const Login = () => {
@@ -29,15 +32,13 @@ const Login = () => {
 
   
     return (
-        <div>
+        <i class="fa fa-align-center" aria-hidden="true">
             <form onSubmit={handleSubmit}>
                 <input type="text" name="username" placeholder="Username" value={username} onChange={(event) => setUserName(event.target.value)} />
-
                 <input name="password" type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
-
                 <input type="submit" value="Login" class="btn btn-primary" />
             </form>
-        </div>
+        </i>
     )
 }
 

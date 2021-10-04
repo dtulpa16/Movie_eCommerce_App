@@ -30,10 +30,10 @@ const NavBar = ({user}) => {
         <React.Fragment>
           
             <Link to = '/register'>
-              <li className="li" >Register</li>
+              <li class="parent" >Register</li>
             </Link>  
             <Link to = '/Login'>
-              <li className="li">Login</li>
+              <li class="parent">Login</li>
             </Link>
 
         </React.Fragment>  

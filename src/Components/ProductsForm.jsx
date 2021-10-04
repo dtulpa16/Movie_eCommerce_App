@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import './Button.css';
+import './Form.css';
 
 
 
@@ -43,26 +45,29 @@ class ProductsForm extends Component {
   
   render() { 
     return ( 
-     <form className= "productForm" onSubmit={(event) => this.handleSubmit (event)}>
-     <label>Product Name</label>
-     <input name= "name" onChange={this.handleChange} value={this.state.name}/>
-     <label>Description</label>
-     <input name= "description" onChange={this.handleChange} value={this.state.description}/>
-     <label>Price</label>
-     <input name= "price" type = "number" onChange={this.handleChangeOne} value={this.state.price}/>
-     <label>Genre</label>
-     <select id="genres" name="genres" type = "number"onChange={this.handleChangeOne}>
-        <option value="1">Musical</option>
-        <option value="2">Comedy</option>
-        <option value="3">Documentary</option>
-        <option value="4">Action</option>
-        <option value="5">Suspense</option>
-        <option value="6">Drama</option>
-        <option value="7">Mystery</option>
-    </select>
-     <button type = "submit">Post product</button>
-     </form> 
+      <React.Fragment>
+        <h1>List an Item</h1>
+        <form className= "productForm" onSubmit={(event) => this.handleSubmit (event)}>
+        <label>Product Name</label>
+        <input name= "name" onChange={this.handleChange} value={this.state.name}/>
+        <label>Description</label>
+        <input name= "description" onChange={this.handleChange} value={this.state.description}/>
+        <label>Price</label>
+        <input name= "price" type = "number" onChange={this.handleChangeOne} value={this.state.price}/>
+        <label>Genre</label>
+        <select id="genres" name="genres" type = "number"onChange={this.handleChangeOne}>
+            <option value="1">Musical</option>
+            <option value="2">Comedy</option>
+            <option value="3">Documentary</option>
+            <option value="4">Action</option>
+            <option value="5">Suspense</option>
+            <option value="6">Drama</option>
+            <option value="7">Mystery</option>
+        </select>
+        <button type = "submit">Post product</button>
+        </form> 
 
+</React.Fragment>
     );
   }
 }

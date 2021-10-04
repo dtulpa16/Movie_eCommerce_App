@@ -2,6 +2,8 @@ import jwtDecode from 'jwt-decode';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Checkout from './CheckOut';
+import './ProductList.css';
+import './Button.css';
 
 
 const ShoppingCart =(props) =>{
@@ -31,26 +33,24 @@ const ShoppingCart =(props) =>{
   return (
   <div>
     <h1>Your Cart</h1><hr/>
-    <table class="styled-table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Price</th>
+    <table class="rwd-table" width="100%">
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
+                {products.map((element)=>
+                <>
+                  <tr class="active-row">
+                    <td data-th="Movie Title">{element.products.name}</td>
+                    <td data-th="Gross">${element.products.price}</td>
+                    <td><div class="button_slide slide_left" onClick={()=> removeProduct(element.products.id)}>Remove From Cart</div></td>
                     </tr>
-                </thead>
-                {products.map((element)=><>
-                <tbody>
-                  <tr>
-                    <td>{element.products.name}</td>
-                    <td>${element.products.price}</td>
-                    <td><button onClick={()=> removeProduct(element.products.id)}>Remove From Cart</button></td>
-                    </tr>
-                    </tbody></>)}             
+                </>)}             
             </table>
             {checkout ?(
               <Checkout/>
             ):(
-              <button onClick={()=>setCheckout(true)}>Checkout</button>
+              <div class="button_slide slide_left" onClick={()=>setCheckout(true)}>Checkout</div>
             )}
   </div>
 
