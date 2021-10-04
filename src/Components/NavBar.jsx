@@ -5,21 +5,23 @@ import './NavBar.css';
 
 const NavBar = ({user}) => {
   return ( 
-    <nav className="navbar">
+    <nav className="navigationWrapper">
+      <div class="logoWrapper">
+      <span class="stylish">n'</span>
+      <span class="logo">Chill</span>
+  </div>
+  <ul class="navigation">
       {user &&
           <React.Fragment>
             <h4>Welcome {user.username}</h4>
             <Link to = '/products'>
-              <li className="li" >Products for sale</li>
+              <li class="parent" >Products for sale</li>
             </Link> 
             <Link to = '/productsform'>
-              <li className="li">List Item</li>
+              <li class="parent">List Item</li>
             </Link>  
-            <Link to = '/checkOut'>
-              <li className="li" >CheckOut</li>
-            </Link> 
             <Link to = '/shopping_cart'>
-              <li className="li">ShoppingCart</li>
+              <li class="parent">ShoppingCart</li>
             </Link>
             <li><Logout/></li>
             </React.Fragment>
@@ -36,6 +38,7 @@ const NavBar = ({user}) => {
 
         </React.Fragment>  
         }
+        </ul>
     </nav>
    );
 }

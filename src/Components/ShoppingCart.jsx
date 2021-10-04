@@ -1,10 +1,12 @@
 import jwtDecode from 'jwt-decode';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import Checkout from './CheckOut';
 
 
 const ShoppingCart =(props) =>{
     const [products,setProducts] = useState([])
+    const [checkout,setCheckout] = useState(false)
 
 //useEffect operated the same as componentsDidMount. Whatever is in the first part will run first. When the value of whats in the brackets changes, useEffect will run again.
 //props.user is passed in from the products list page. This is going to be whatever user is logged in.
@@ -45,6 +47,11 @@ const ShoppingCart =(props) =>{
                     </tr>
                     </tbody></>)}             
             </table>
+            {checkout ?(
+              <Checkout/>
+            ):(
+              <button onClick={()=>setCheckout(true)}>Checkout</button>
+            )}
   </div>
 
     );

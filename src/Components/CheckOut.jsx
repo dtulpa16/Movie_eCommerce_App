@@ -1,19 +1,49 @@
 import React from 'react';
+import { useEffect, useRef } from 'react/cjs/react.development';
 
 
-function Checkout() {
+const Checkout = () => {
+
+  const paypal = useRef()
+
+  useEffect(() => {
+    window.paypal
+      .Buttons({
+        style: {
+          layout:  'vertical',
+          color:   'blue',
+          shape:   'rect',
+          label:   'checkout',
+        },
+        createOrder: (data, actions, err) => {
+          return actions.order.create({
+            intent: "CAPTURE",
+            purchase_units: [
+              {
+                description: "Movies",
+                amount: {
+                  currency_code: "USD",
+                  value: 10,
+                },
+              },
+            ],
+          });
+        },
+        onApprove: async (data, actions) => {
+          const order = await actions.order.capture();
+          console.log(order);
+        },
+        onError: (err) => {
+          console.log(err);
+        },
+      })
+      .render(paypal.current);
+  }, []);
+
   return (
-      <div className="checkout">
-        <div className="checkout_left">
-          <div>
-          <h2 className="checkout_title">Your cart is empty.</h2>
-          <p>Please add items</p>
-        </div>
-      </div>
-      <div className="checkout__right">
-          {/* <Subtotal/> */}
-  </div>  
-  </div>  
+    <div>
+      <div width="20%" height = "15%"ref={paypal}></div>
+    </div>
   )
 }
 
