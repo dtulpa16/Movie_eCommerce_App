@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-
+//This fetches the rating (1-5) of the product 
+//The product ID is being passed in as props from the products list component
 const Reviews = (props) => {
     const [rating, setRating] = useState([''])
     async function getProductRatingReview(props) {
@@ -13,16 +14,15 @@ const Reviews = (props) => {
             console.log("API call failed");
         }
     }
-
+//Establishes first thing that will be ran
     useEffect(() => {
         getProductRatingReview(props.product)
     },[props])
 
-    // map the ratings and reviews so they can be displayed with each product
 
     return ( 
         <div>
-                {rating}
+                {rating}/5 Stars
         </div>
     );
 }

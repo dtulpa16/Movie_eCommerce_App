@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import axios from 'axios';
+
+//This component fetches the genre of the product.
+//Because we didnt have a "genre" row in our table, we had to utilize the search endpoint we created as a workaround.
+//This endpoint when tested in postaman returned the product as well as all the linked foreign key data. The genre was one of these datapoints
 class GetGenre extends Component {
     constructor(props) {
         super(props);
@@ -14,6 +18,7 @@ class GetGenre extends Component {
         this.genreType()
     }
 
+    //If we had a genre field in our products table, we wouldnt need to use this function, as we could just map through it on the products list page.
     async genreType(){
         console.log(this.props.product)
         var search = (this.props.product).slice(0,4)

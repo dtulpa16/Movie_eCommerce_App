@@ -20,8 +20,8 @@ class Register extends Component {
     });
   };
 
+  //once the form is submitted, an object is created. The values on the left should match the name of the rows in the table
   handleSubmit=(event) =>{
-    event.preventDefault();
     let aUser ={
       'firstname' : this.state.firstName,
       'lastname': this.state.lastName,
@@ -32,11 +32,12 @@ class Register extends Component {
       'city': this.state.city,
       'state': this.state.state,
     }  
+    // The object we created is then passed into a function where we post the new user to the user table
       this.addNewUser(aUser)
   };
 
   async addNewUser(newUser){
-    await axios.post(`https://localhost:44394/api/authentication`, newUser)
+    await axios.post(`https://localhost:44394/api/authentication`, newUser).then(response => {alert("Registration complete! You may now login.")})
   }
 
 

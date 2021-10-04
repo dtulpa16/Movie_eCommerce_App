@@ -25,7 +25,7 @@ class App extends Component{
         user: ''
     }
 
-    
+//Establishes what methods/functions will be ran when the page is launched
      componentDidMount() {
         const jwt = localStorage.getItem('token');
         try{
@@ -37,7 +37,7 @@ class App extends Component{
     }
 
     
-
+// Establish url enpoints to get to a certain page vvv
 render(){
     const user = this.state.user;
         return(

@@ -17,8 +17,7 @@ class ProductList extends Component {
          }
     }
 
-    
-
+    //first things to run
     componentDidMount(){
         this.getProduct()
         this.getUser(localStorage)
@@ -70,6 +69,7 @@ class ProductList extends Component {
     render() { 
         return (
         <React.Fragment>
+            {console.log(this.state.user.id)}
             <table class="styled-table">
                 <thead>
                     <tr>
@@ -80,7 +80,15 @@ class ProductList extends Component {
                         <th>Average Customer Rating</th>
                     </tr>
                 </thead>
-                {this.state.product.map((element) => <><tbody><tr class="active-row"><td>{element.name}</td> <td>{element.description}</td> <td>{element.price}</td><td><GetGenre product = {element.name}/></td><td><Reviews product = {element.id}/></td><td><Link to ={{pathname: '/product_description', state:{product: [element]}}}>Product description</Link></td><td><button onClick={() => this.addItemToCart(element)}>Add to cart</button></td></tr></tbody></>)}
+                {this.state.product.map((element) => <><tbody>{console.log(element)}
+                    <tr class="active-row"><td>{element.name}</td>
+                     <td>{element.description}</td> <td>{element.price}</td>
+                     <td><GetGenre product = {element.name}/></td>
+                     <td><Reviews product = {element.id}/></td>
+                     <td><Link to ={{pathname: '/product_description', state:{product: [element]}}}>Product description</Link></td>
+                     <td><button onClick={() => this.addItemToCart(element)}>Add to cart</button></td>
+                     </tr>
+                     </tbody></>)}
              
             </table>
             

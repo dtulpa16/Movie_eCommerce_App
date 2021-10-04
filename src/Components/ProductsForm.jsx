@@ -24,6 +24,8 @@ class ProductsForm extends Component {
     });
   };
 
+
+//once the form is submitted, an object is created. The values on the left should match the name of the rows in the table
   handleSubmit=(event)=>{
     event.preventDefault();
     let newProduct= {
@@ -32,7 +34,8 @@ class ProductsForm extends Component {
       price:this.state.price,
       genresId:this.state.genres
     }
-      this.addNewProduct(newProduct)
+// The object we created is then passed into a function where we post the new user to the user table
+    this.addNewProduct(newProduct)
   }
   async addNewProduct(newProd){
     await axios.post(`https://localhost:44394/api/product`,newProd)

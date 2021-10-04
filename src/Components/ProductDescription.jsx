@@ -9,7 +9,7 @@ import DisplayReviews from './DisplayReviews';
 function ProductDescription(props) {
   const [product, setProduct] = useState([''])
 
-
+//Props in this function is the entire product object. This is mapped through to display the information
   return ( 
       <React.Fragment>
       {props.location.state.product.map((element) => 

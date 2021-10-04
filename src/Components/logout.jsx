@@ -1,3 +1,5 @@
+
+//Logs out customer by clearing the local storage of the bearer token
 const Logout = () => {
     
     const handleClick = () => {
