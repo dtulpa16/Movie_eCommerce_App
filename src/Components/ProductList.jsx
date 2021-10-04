@@ -6,6 +6,8 @@ import ProductDescription from './ProductDescription';
 import Reviews from './Reviews';
 import jwtDecode from 'jwt-decode';
 import GetGenre from './GetGenre';
+import './ProductList.css';
+import './Button.css';
 
 class ProductList extends Component {
     constructor(props) {
@@ -76,28 +78,32 @@ class ProductList extends Component {
     render() { 
         return (
         <React.Fragment>
-            <form onSubmit = {this.handleSubmit}>
-                    <input name= 'search' onChange = {this.handleChange} value = {this.state.search}/> 
-                    <button type = 'submit'>Search!</button>
-            </form>
+
             {console.log(this.state.user.id)}
-            <table class="styled-table">
-                <thead>
+            <h1>Movies For Sale</h1>
+            <table class="rwd-table">
                     <tr>
-                        <th>Name</th>
+                        <th>Title</th>
                         <th>Description</th>
                         <th>Price</th>
                         <th>Genre</th>
                         <th>Average Customer Rating</th>
+                        <th>            
+                        <form onSubmit = {this.handleSubmit}>
+                        <input name= 'search' onChange = {this.handleChange} value = {this.state.search}/> 
+                        <button type = 'submit'>Search!</button>
+                    </form> 
+                    </th>
                     </tr>
-                </thead>
                 {this.state.product.map((element) => <><tbody>{console.log(element)}
-                    <tr class="active-row"><td>{element.name}</td>
-                     <td>{element.description}</td> <td>{element.price}</td>
-                     <td><GetGenre product = {element.name}/></td>
-                     <td><Reviews product = {element.id}/></td>
-                     <td><Link to ={{pathname: '/product_description', state:{product: [element]}}}>Product description</Link></td>
-                     <td><button onClick={() => this.addItemToCart(element)}>Add to cart</button></td>
+                    <tr class="active-row">
+                        <td data-th="Movie Title">{element.name}</td>
+                        <td data-th="Genre">{element.description}</td> 
+                        <td data-th="Gross">{element.price}</td>
+                        <td data-th="Genre"><GetGenre product = {element.name}/></td>
+                        <td><Reviews product = {element.id}/></td>
+                        <td ><Link class="button_slide slide_left" to ={{pathname: '/product_description', state:{product: [element]}}}>Product description</Link></td>
+                        <td><div class="button_slide slide_left" onClick={() => this.addItemToCart(element)}>Add to cart</div></td>
                      </tr>
                      </tbody></>)}
              
