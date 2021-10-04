@@ -63,12 +63,23 @@ class ProductList extends Component {
         await axios.post(`https://localhost:44394/api/shoppingcart`,addToCart)
     }
 
-
+    filteredSearch = () =>{
+        let filteredResults = this.state.product.filter(product => {
+            return product.name.toLowerCase().includes(this.state.search.toLowerCase())
+        })
+        this.setState({
+            product : filteredResults
+        })
+    }
     
 
     render() { 
         return (
         <React.Fragment>
+            <form onSubmit = {this.handleSubmit}>
+                    <input name= 'search' onChange = {this.handleChange} value = {this.state.search}/> 
+                    <button type = 'submit'>Search!</button>
+            </form>
             {console.log(this.state.user.id)}
             <table class="styled-table">
                 <thead>
