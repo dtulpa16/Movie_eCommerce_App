@@ -45,6 +45,7 @@ body .signature:hover {
 .navigationWrapper .navigation {
   display: flex;
   list-style-type: none;
+  padding-right:40%;
 }
 .navigationWrapper .navigation li {
   opacity: 1;
