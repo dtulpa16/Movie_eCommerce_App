@@ -55,8 +55,9 @@ body {
 }
 
 h1 {
-    background: #212121;
-    margin-top: 4%;
+  align-content: center;
+  background: #212121;
+  margin-top: 5%;
   font-weight: normal;
   letter-spacing: -1px;
   color: #ffffff;

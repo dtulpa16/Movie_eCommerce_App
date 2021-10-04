@@ -21,7 +21,7 @@ class GetGenre extends Component {
     //If we had a genre field in our products table, we wouldnt need to use this function, as we could just map through it on the products list page.
     async genreType(){
         console.log(this.props.product)
-        var search = (this.props.product).slice(0,4)
+        var search = (this.props.product).slice(0,6)
         var response = await axios.get(`https://localhost:44394/api/product/searchresults${search}`)
         this.setState({
             genre:response.data

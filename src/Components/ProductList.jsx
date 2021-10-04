@@ -99,7 +99,7 @@ class ProductList extends Component {
                     <tr class="active-row">
                         <td data-th="Movie Title">{element.name}</td>
                         <td data-th="Genre">{element.description}</td> 
-                        <td data-th="Gross">{element.price}</td>
+                        <td data-th="Gross">${element.price}</td>
                         <td data-th="Genre"><GetGenre product = {element.name}/></td>
                         <td><Reviews product = {element.id}/></td>
                         <td ><Link class="button_slide slide_left" to ={{pathname: '/product_description', state:{product: [element]}}}>Product description</Link></td>

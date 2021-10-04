@@ -13,7 +13,7 @@ const NavBar = ({user}) => {
   <ul class="navigation">
       {user &&
           <React.Fragment>
-            <h4>Welcome {user.username}</h4>
+            <h4>Welcome {user.username}!     </h4>
             <Link to = '/products'>
               <li class="parent" >Products for sale</li>
             </Link> 

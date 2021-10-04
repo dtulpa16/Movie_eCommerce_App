@@ -11,7 +11,10 @@ function ProductDescription(props) {
 
 //Props in this function is the entire product object. This is mapped through to display the information
   return ( 
-      <React.Fragment>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9"></div>
+
       {props.location.state.product.map((element) => 
       <>
       <h3>Title: {element.name}</h3><hr/>
@@ -22,7 +25,8 @@ function ProductDescription(props) {
       <DisplayReviews product ={element}/>
       <CreateReview product={element.id}/>
       </>)}
-      </React.Fragment>
+    </div>
+</div>
    );
 }
 

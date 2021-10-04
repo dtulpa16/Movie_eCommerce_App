@@ -32,13 +32,13 @@ const Login = () => {
 
   
     return (
-        <i class="fa fa-align-center" aria-hidden="true">
+
             <form onSubmit={handleSubmit}>
                 <input type="text" name="username" placeholder="Username" value={username} onChange={(event) => setUserName(event.target.value)} />
                 <input name="password" type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
                 <input type="submit" value="Login" class="btn btn-primary" />
             </form>
-        </i>
+
     )
 }
 

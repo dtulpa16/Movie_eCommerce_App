@@ -29,6 +29,7 @@ body .signature:hover {
   color: white;
   overflow: hidden;
   width: 100%;
+  margin-bottom: 1%;
 }
 .navigationWrapper .logoWrapper {
   display: flex;
@@ -45,7 +46,10 @@ body .signature:hover {
 .navigationWrapper .navigation {
   display: flex;
   list-style-type: none;
-  padding-right:40%;
+
+}
+.navigationWrapper .navigation h3{
+align-content: center;
 }
 .navigationWrapper .navigation li {
   opacity: 1;
@@ -56,6 +60,8 @@ body .signature:hover {
 }
 .navigationWrapper .navigation .parent {
   padding: 0 10px;
+  align-content: center;
+  text-align: center;
   cursor: pointer;
 }
 

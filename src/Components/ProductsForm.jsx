@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
@@ -39,21 +41,22 @@ class ProductsForm extends Component {
     this.addNewProduct(newProduct)
   }
   async addNewProduct(newProd){
-    await axios.post(`https://localhost:44394/api/product`,newProd)
+    await axios.post(`https://localhost:44394/api/product`,newProd).then(response => {alert("Movie Listed for sale!")})
   }
   
   render() { 
     return ( 
-      <React.Fragment>
+    <div>
         <h1>List an Item</h1>
         <form className= "productForm" onSubmit={(event) => this.handleSubmit (event)}>
-        <label>Product Name</label>
+          <ul>
+        <li><label>Product Name</label></li>
         <input name= "name" onChange={this.handleChange} value={this.state.name}/>
-        <label>Description</label>
+        <li><label>Description</label></li>
         <input name= "description" onChange={this.handleChange} value={this.state.description}/>
-        <label>Price</label>
+        <li><label>Price</label></li>
         <input name= "price" type = "number" onChange={this.handleChangeOne} value={this.state.price}/>
-        <label>Genre</label>
+        <li><label>Genre</label></li>
         <select id="genres" name="genres" type = "number"onChange={this.handleChangeOne}>
             <option value="1">Musical</option>
             <option value="2">Comedy</option>
@@ -64,9 +67,9 @@ class ProductsForm extends Component {
             <option value="7">Mystery</option>
         </select>
         <button type = "submit">Post product</button>
-        </form> 
-
-</React.Fragment>
+        </ul>
+        </form>
+   </div>
     );
   }
 }
