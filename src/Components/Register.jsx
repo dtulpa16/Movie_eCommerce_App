@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React,{ Component} from 'react';
+import './app.css'
 
 class Register extends Component {
     state = { 
@@ -22,15 +23,16 @@ class Register extends Component {
 
   //once the form is submitted, an object is created. The values on the left should match the name of the rows in the table
   handleSubmit=(event) =>{
+    event.preventDefault()
     let aUser ={
       'firstname' : this.state.firstName,
       'lastname': this.state.lastName,
       'username': this.state.userName,
       'password': this.state.password,
       'email': this.state.userEmail,
-      'addressLine1': this.state.addressLine1,
-      'city': this.state.city,
-      'state': this.state.state,
+      // 'addressLine1': this.state.addressLine1,
+      // 'city': this.state.city,
+      // 'state': this.state.state,
     }  
     // The object we created is then passed into a function where we post the new user to the user table
       this.addNewUser(aUser)
@@ -43,27 +45,23 @@ class Register extends Component {
 
   render() { 
     return ( 
-    <ul>
-      <form className="form" onSubmit={this.handleSubmit}>
-      <li><label>First Name</label></li>
-      <input name="firstName" onChange={this.handleChange} value={this.state.firstName}/>
-      <li><label>Last Name</label></li>
-      <input name="lastName" onChange={this.handleChange} value={this.state.lastName}/>
-      <li><label>Username</label></li>
-      <input name="userName" onChange={this.handleChange} value={this.state.userName}/>
-      <li><label>Password</label></li>
-      <input name="password" onChange={this.handleChange} value={this.state.password}/>
-      <li><label>Email</label></li>
-      <input name="userEmail" onChange={this.handleChange} value={this.state.userEmail}/>
-      <li><label>State</label></li>
-      <input name="state" onChange={this.handleChange} value={this.state.state}/>
-      <li><label>Address Line 1</label></li>
-      <input name="addressLine1" onChange={this.handleChange} value={this.state.addressLine1}/>
-      <li><label>city</label></li>
-      <input name="city" onChange={this.handleChange} value={this.state.city}/>
+    <div className='regwrapper regfadeInDown'>
+    <div id='registerContent'>
+      <form className="register" onSubmit={this.handleSubmit}>
+
+      <input placeholder="First Name" id="reginput" name="firstName" onChange={this.handleChange} value={this.state.firstName}/>
+
+      <input placeholder="Last Name" id="reginput" name="lastName" onChange={this.handleChange} value={this.state.lastName}/>
+
+      <input placeholder="Username" id="reginput" name="userName" onChange={this.handleChange} value={this.state.userName}/>
+
+      <input placeholder="Password" id="reginput" name="password" onChange={this.handleChange} value={this.state.password}/>
+
+      <input placeholder="Email" id="reginput" name="userEmail" onChange={this.handleChange} value={this.state.userEmail}/>
+
       <button type = "submit">Create account</button>
-      </form>
-      </ul>
+      </form></div>
+      </div>
      );
   }
 }

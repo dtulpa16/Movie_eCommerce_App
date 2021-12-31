@@ -22,7 +22,8 @@ const ShoppingCart =(props) =>{
 //The .then() runs after the axios call is completed. In this case, it fetches all products attached to the user then sets the "products" variable up top to whatever data is fetched.
 
     async function getProducts(user){
-        await axios.get(`https://localhost:44394/api/shoppingcart/${user.id}`).then(response=>{setProducts(response.data)})
+        let response = await axios.get(`https://localhost:44394/api/shoppingcart/${user.id}`).then(response=>{setProducts(response.data)})
+        
     }
 //removes a product from the cart
     async function removeProduct(id){
@@ -35,12 +36,14 @@ const ShoppingCart =(props) =>{
     <h1>Your Cart</h1><hr/>
     <table class="rwd-table" width="100%">
                 <tr>
+                <th></th>
                     <th>Title</th>
                     <th>Price</th>
                 </tr>
                 {products.map((element)=>
                 <>
                   <tr class="active-row">
+                  <td><img src={element.imageSrc}/></td>
                     <td data-th="Movie Title">{element.products.name}</td>
                     <td data-th="Gross">${element.products.price}</td>
                     <td><div class="button_slide slide_left" onClick={()=> removeProduct(element.products.id)}>Remove From Cart</div></td>

@@ -5,13 +5,15 @@ import { useLocation } from 'react-router';
 import GetGenre from './GetGenre';
 import CreateReview from './CreateReview';
 import DisplayReviews from './DisplayReviews';
+import './description.css'
 
 function ProductDescription(props) {
   const [product, setProduct] = useState([''])
 
 //Props in this function is the entire product object. This is mapped through to display the information
   return ( 
-<div class="container">
+    <div className='desc'>
+<div className="container">
     <div class="row">
         <div class="col-md-offset-1 col-md-9"></div>
 
@@ -26,6 +28,7 @@ function ProductDescription(props) {
       <CreateReview product={element.id}/>
       </>)}
     </div>
+</div>
 </div>
    );
 }

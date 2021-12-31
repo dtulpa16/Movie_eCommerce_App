@@ -13,7 +13,7 @@ const DisplayReviews = (props) => {
 //Props is being passed in from the products list page.
     useEffect(()=>{
         getReviews(props.product.id)
-    },[props,reviews])
+    },[reviews])
 
 
     return ( 
