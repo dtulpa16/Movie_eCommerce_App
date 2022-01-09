@@ -34,6 +34,7 @@ class App extends Component{
         }catch{
 
         }
+        
     }
 
     
@@ -58,7 +59,7 @@ render(){
                 <Route path="/login" component={Login}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/user_home" component={BuyerHome}/>
-                <Route path="/productsform" component={ProductsForm}/>
+                <Route path="/productsform" render={props => <ProductsForm {...props} user={this.state.user}/>}/>
                 <Route path="/product_description" component={ProductDescription}/>
                 <Route path="/shopping_cart" render={props => <ShoppingCart {...props} user={this.state.user}/>}/>
                 <Route path="/checkout" component={CheckOut}/>
